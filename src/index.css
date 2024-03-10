@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.nav-items > ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav-items > ul > li {
+  padding: 10px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+
+.restaurant-list{
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.card{
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.card > img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card > span{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card > span > h4{
+  text-align: center;
+}
+
+.card > span > h4:first-child{
+  display: flex;
+  align-items: center;
+  background-color: rgb(19, 176, 1);
+  border-radius: 5px;
+  padding: 0 5px 0;
+  color: white;
+}
+
+.card > span > h4:first-child .fa-star{
+  font-size: small;
+  padding: 0 5px 3px 0;
+}
+
+.shimmerCard{
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: -1px 4px 20px 14px rgba(10, 10, 10, 0.2);
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.shimmerCard > div:image-div{
+  width: 100%;
+  border-radius: 10px;
 }

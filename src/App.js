@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable jsx-a11y/alt-text */
+import React from "react";
+import HeaderComponent from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import { Outlet, createBrowserRouter } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Cart from "./components/Cart";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
+import Profile from "./components/Profile";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeaderComponent />
+      <Outlet />
+      <Footer />
+    </>
   );
 }
+
+export const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: <Body />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+        children: [
+          {
+            path:'profile',
+            element: <Profile />
+          }
+        ]
+      },
+      {
+        path: '/restaurant/:id',
+        element: <RestaurantMenu />,
+      },
+    ]
+  },
+  
+  {
+    path: '/contact',
+    element: <Contact />
+  },
+  {
+    path: '/cart',
+    element: <Cart />
+  },
+])
+
+
 
 export default App;
