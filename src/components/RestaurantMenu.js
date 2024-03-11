@@ -1,32 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import ShimmerCard from "../components/Shimmer/ShimmerCard";
+import useRestaurant from "../utils/useRestaurant";
 
 function RestaurantMenu() {
   const { id } = useParams();
-  const [Restaurant, setRestaurant] = useState();
-  const [RecommendedItems, setRecommendedItems] = useState();
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-  async function getRestaurantInfo() {
-    try {
-      const data = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.67740&lng=83.20360&restaurantId=${id}`
-      );
-      const json = await data.json();
-      setRestaurant(json?.data?.cards[0]?.card?.card?.info);
-      console.log(
-        
-      );
-      setRecommendedItems(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-        ?.card?.itemCards);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const [Restaurant, RecommendedItems] = useRestaurant(id);
   return (
-    <div style={{flex: 1,flexDirection: 'row'}}>
+    <div style={{ flex: 1, flexDirection: "row" }}>
       <h1>Restaurant id: {id}</h1>
       {Restaurant ? (
         <div className="card">
@@ -52,15 +33,13 @@ function RestaurantMenu() {
       ) : (
         <ShimmerCard />
       )}
-      {
-        RecommendedItems ? (
-          RecommendedItems.map(item=>{
-            return <h6>{item?.card?.info?.name}</h6>;
-          })
-        ):(
-          <ShimmerCard />
-        )
-      }
+      {RecommendedItems ? (
+        RecommendedItems.map((item) => {
+          return <h6>{item?.card?.info?.name}</h6>;
+        })
+      ) : (
+        <ShimmerCard />
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerCard from "./Shimmer/ShimmerCard";
+import useOnline from "../utils/useOnline";
 
 const searchItems = (query, restaurantList) => {
   return restaurantList.filter((item) => {
@@ -15,6 +16,8 @@ const Body = () => {
   const [query, setQuery] = useState("");
   const [restaurantList, setRestaurantList] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
+  // const isOnline = useOnline();
+  // console.log(isOnline);
 
   useEffect(() => {
     getRestaurantsData();
@@ -40,6 +43,14 @@ const Body = () => {
       console.log(e);
     }
   }
+
+  // if(isOnline===false){
+  //   return <h1>you are offline</h1>
+  // }
+
+  window.addEventListener('offline',(event)=>{
+    console.log('online');
+  })
 
   return (
     <div>
