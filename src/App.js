@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React,{lazy,Suspense} from "react";
 import HeaderComponent from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
@@ -10,8 +10,10 @@ import Cart from "./components/Cart";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
+import ShimmerCard from "./components/Shimmer/ShimmerCard";
+// import InstaMart from "./components/InstaMart";
 
-
+const InstaMart = lazy(()=>import('../src/components/InstaMart'))
 
 function App() {
   return (
@@ -46,6 +48,10 @@ export const appRouter = createBrowserRouter([
       {
         path: '/restaurant/:id',
         element: <RestaurantMenu />,
+      },
+      {
+        path: 'instamart',
+        element: <Suspense fallback={<ShimmerCard/>}><InstaMart /></Suspense>,
       },
     ]
   },

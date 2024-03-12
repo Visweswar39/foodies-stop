@@ -12,6 +12,7 @@ const HeaderComponent = () => {
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/about'>About</Link></li>
+          <li><Link to='instamart'>Insta mart</Link></li>
           <li>Contact</li>
           <li>Cart</li>
         </ul>

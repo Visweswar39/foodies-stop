@@ -16,7 +16,7 @@ const Body = () => {
   const [query, setQuery] = useState("");
   const [restaurantList, setRestaurantList] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
-  // const isOnline = useOnline();
+  const isOnline = useOnline();
   // console.log(isOnline);
 
   useEffect(() => {
@@ -44,13 +44,13 @@ const Body = () => {
     }
   }
 
-  // if(isOnline===false){
-  //   return <h1>you are offline</h1>
-  // }
+  if(isOnline===false){
+    return <h1>you are offline</h1>
+  }
 
-  window.addEventListener('offline',(event)=>{
-    console.log('online');
-  })
+  // window.addEventListener('offline',(event)=>{
+  //   console.log('online');
+  // })
 
   return (
     <div>
