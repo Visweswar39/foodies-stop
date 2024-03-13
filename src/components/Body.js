@@ -53,17 +53,17 @@ const Body = () => {
   // })
 
   return (
-    <div>
-      <div>
+    <div >
+      <div className="m-4 p-5 bg-blue-100">
         <input
           type="text"
-          className="search-input"
           placeholder="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          className='border-black focus:border-2 rounded-md r'
         />
         <button
-          className="search-btn"
+          className="bg-gray-200 p-1 mx-2 rounded-md border-[1px] border-black hover:bg-green-900"
           onClick={() => {
             setRestaurants(searchItems(query, restaurantList));
           }}
@@ -72,7 +72,7 @@ const Body = () => {
         </button>
       </div>
       {restaurantList.length > 0 ? (
-        <div className="restaurant-list">
+        <div className="flex flex-wrap justify-center">
           {restaurants.length === 0 ? (
             <h1>sorry no restaurants</h1>
           ) : (

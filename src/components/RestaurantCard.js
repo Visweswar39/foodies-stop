@@ -14,14 +14,15 @@ const RestaurantCard = ({
     return (
       // eslint-disable-next-line react/jsx-no-comment-textnodes
       <Link to={`/restaurant/${id}`}>
-      <div className="card">
+      <div className="p-2 bg-blue-100 m-5 w-60 rounded-md shadow-md">
         <img
           src={
             "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
             cloudinaryImageId
           }
+          className=""
         />
-        <h2>{name}</h2>
+        <h2 className="font-bold text-lg justify-center">{name}</h2>
         <h4>{cuisines?.join(", ")}</h4>
         <h4>{areaName}</h4>
         <span>

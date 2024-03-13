@@ -1,4 +1,8 @@
-.nav-items > ul{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .nav-items > ul{
   display: flex;
   list-style-type: none;
   justify-content: space-between;
@@ -74,4 +78,4 @@
 .shimmerCard > div:image-div{
   width: 100%;
   border-radius: 10px;
-}
+} */
